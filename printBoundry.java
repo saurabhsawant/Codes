@@ -13,7 +13,7 @@ public class Solution {
         if(root.left == null && root.right == null) {
             System.put.println(root.data.toString());
             return;
-        } //ptherwise this will get oprinted twice by left and leaf
+        } //This single root will not be printed by left but by leaf
             
         
         //print left Boundry from  top - bottom
