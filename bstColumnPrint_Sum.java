@@ -17,7 +17,7 @@ public class Solution {
         //Put All Nodes in HashMap
         Integer max = Integer.MIN_VALUE;
         Integer min = Integer.MAX_VALUE;
-        HashMap<Integer, ArrayLis=t<T>> map = new HashMap<Integer, ArrayList<T>>();
+        HashMap<Integer, ArrayList<T>> map = new HashMap<Integer, ArrayList<T>>();
         parseColumnsIntoMap(root, map, min, max);
         
         
