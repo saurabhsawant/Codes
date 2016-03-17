@@ -45,7 +45,7 @@ public HrapSort {
         buildMaxHeap(a);
         
         int heapSize = a.lenhth;
-        for(int i = a.length-1; i>= 1 ; i++) {
+        for(int i = a.length-1; i>= 1 ; i--) {
             swap(0,i);
             heapSize --;
             maxHeapify(a, 0, heapSize);
