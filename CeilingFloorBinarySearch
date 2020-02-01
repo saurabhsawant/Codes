@@ -1,0 +1,34 @@
+public class HelloWorld{
+
+     public static void main(String []args){
+        System.out.println("Hello World");
+     }
+     
+     
+     
+     public int ceilingBS(int[] a, int x)
+     {
+         
+        int low=0;
+        int high=a.length-1;
+        int mid=0;
+        while(low<=high){
+            mid = low + (high - low)/2;
+            if(x==a[mid]) return mid;
+            
+            
+            if(x<a[mid])
+                high=mid-1;
+            else
+                low=mid+1;
+        }
+         
+         // BS
+         //reuturn -1;
+        //ceiling 
+        return Math.min(low, a.length-1); // retrurn (low<=a.length-1? low:high)
+        
+        //floor
+        return Math.max(high,0); // reuturn (high>=0? high:low)
+     }
+}
