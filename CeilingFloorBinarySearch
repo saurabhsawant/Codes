@@ -25,10 +25,11 @@ public class HelloWorld{
          
          // BS
          //reuturn -1;
+        
         //ceiling 
         return Math.min(low, a.length-1); // retrurn (low<=a.length-1? low:high)
         
         //floor
-        return Math.max(high,0); // reuturn (high>=0? high:low)
+        //return Math.max(high,0); // reuturn (high>=0? high:low)
      }
 }
