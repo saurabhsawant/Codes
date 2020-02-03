@@ -1,5 +1,50 @@
 import java.util.*;
-public class K{
+
+// Nearest Points to the Origin
+class Point 
+{
+    public int x;
+    public int y;
+
+    public Point(int x, int y){
+        this.x=x;
+        this.y=y;
+    }
+    
+    public boolean equals(Object o) {
+        if(o == null)
+            return false;   
+        
+        if(this==o) return true;
+        
+        Point that;
+        if(o instanceof Point)
+            that = (Point)o;
+        else return false;
+        
+        if (this.x != that.x) return false;
+        
+        if(this.y != that.y) return false;
+        
+        
+        return true;
+    }
+}
+
+
+class NearestPointComparatorReverse implements Comparator<Point>
+{
+    public int compare(Point p1, Point p2){
+        
+        double p1d = Math.pow(p1.x,2) + Math.pow(p1.y,2);
+        double p2d = Math.pow(p2.x,2) + Math.pow(p2.y, 2);
+        
+        return (int)(p2d - p1d); 
+    }
+}
+
+public class K
+{
     //K  largest numbers
     
     public static ArrayList<Integer> kLargestElements(int[] nums, int k) throws Exception
@@ -64,7 +109,35 @@ public class K{
     }
     
     
-     public static void main(String []args){
+    
+    //Knearest to Orighins
+    public ArrayList<Point> KNearestOrighinPoints(Point[] points, int k) throws Exception
+    {
+        if(points==null || points.length == 0 || k==0)
+            throw new Exception("");
+        
+        NearestPointComparatorReverse comp = new NearestPointComparatorReverse();
+        
+        PriorityQueue<Point> maxHeap = new PriorityQueue<Point>(comp);
+        
+        for(int i=0 ; i<= points.length-1; i++)
+        {
+            if(i<=k-1)
+                maxHeap.add(points[i]);
+            else{
+                if(!maxHeap.isEmpty()&& comp.compare(points[i], maxHeap.peek()) >= 0)
+                {
+                    maxHeap.poll();
+                    maxHeap.add(points[i]);
+                }
+            }
+        }
+        
+        return new ArrayList<Point>(maxHeap);
+        
+    }
+    
+     public static void main(String[] args){
         try{
         System.out.println(kLargestElements(new int[]{1,3,2,5,4}, 2));
         System.out.println(kThSmallestElement(new int[]{1,3,2,5,4}, 2));
@@ -74,4 +147,6 @@ public class K{
             //DN
         }
      }
+     
 }
+
