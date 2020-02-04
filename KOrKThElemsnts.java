@@ -147,6 +147,43 @@ public class K
             //DN
         }
      }
+    
+    
+     // aabbccc -> cccaabb
+     public static String sortFerquencyString(String str){
+         if(str==null||str.length()<=1) return str;
+         
+         Map<Character, Integer> freqMap = frequencyString(str); //O(N)
+         
+         PriorityQueue<Map.Entry<Character,Integer>> maxHeap = new PriorityQueue<Map.Entry<Character, Integer>>((e1,e2)-> (e2.getValue()==e1.getValue())?
+            e2.getKey()-e1.getKey():e2.getValue()-e1.getValue());
+        
+        maxHeap.addAll(freqMap.entrySet()); // O(N) NlogN
+        
+        StringBuilder sb = new StringBuilder(); // NlonN
+        while(!maxHeap.isEmpty()){
+            Map.Entry<Character, Integer> entry = maxHeap.poll();
+            for(int i=1;i <=entry.getValue(); i++)
+                sb.append(entry.getKey());
+        }        
+        
+        return sb.toString();
+         
+     }
+     
+     public static HashMap<Character, Integer> frequencyString(String str) {
+         if(str==null||str.length()==0)
+            return null;
+            
+        HashMap<Character,Integer> freqMap = new HashMap<Character, Integer>();
+        for(char c : str.toCharArray()) 
+            if(freqMap.containsKey(c))
+                freqMap.put(c, freqMap.get(c)+1);
+            else
+                freqMap.put(c, 1);
+        
+        return freqMap;    
+     }
      
 }
 
