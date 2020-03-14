@@ -22,7 +22,7 @@ public HrapSort {
             
         if(index!=maxindex) {
             swap(a, index, maxindex);
-            maxHeapify(a, maxindex, heapSize); // maxHeapify(a, maxindex, i+1);
+            maxHeapify(a, maxindex, heapSize);
         }
     }
     
@@ -48,7 +48,7 @@ public HrapSort {
         for(int i = a.length-1; i>= 1 ; i--) {
             swap(0,i);
             heapSize --;
-            maxHeapify(a, 0, heapSize);
+            maxHeapify(a, 0, heapSize); // maxHeapify(a, maxindex, i+1);
         }
         
     }
