@@ -26,8 +26,8 @@ public HrapSort {
         }
     }
     
-    public static buildMaxHeap(int[] a) {
-        if(a==null) return null;
+    public static void buildMaxHeap(int[] a) {
+        if(a==null) return;
         //first mon leaf node (lastindexNode - 1) /2 ie last node cha parent
         if(int i=((a.length -1) -1)/2; i>=0; i--) {
             maxHeapify(a, i, a.length);
