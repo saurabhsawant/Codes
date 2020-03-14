@@ -8,7 +8,7 @@ public HrapSort {
     }
     
     
-    public static maxHeapify(int[] a, int index, int heapSized) {
+    public static void maxHeapify(int[] a, int index, int heapSized) {
         int left = 2 * index + 1;
         int right =  2 * index + 2;
         
